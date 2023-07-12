@@ -71,7 +71,7 @@ class PayrollController extends Controller
             'description'           => null,
         ];
 
-        $employee = Employee::get();
+        $employee = Employee::get()->where('deactivated_at', null);
         foreach ($employee as $key => $value) {
             $employee_list[$value->id] = $value->name;
         };
