@@ -114,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                    @php
+                    {{-- @php
                         $penggajian_different = $report->penggajian[0] - $report->penggajian[1];
                     @endphp
                     <p class="p-0 m-0 text-lowercase text-secondary mt-auto">@if ($penggajian_different > 0)
@@ -124,7 +124,7 @@
                     @else
                         <span class="fw-bold">{{ number_format($penggajian_different, 0, ',', '.') }}</span>
                     @endif dari jumlah sebelumnya
-                    </p>
+                    </p> --}}
                 </div>
             </div>
             <div class="col-12 col-lg-4 mb-4">
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                     </div>
-                    @php
+                    {{-- @php
                         $pemasukan_different = $report->pemasukan[0] - $report->pemasukan[1];
                     @endphp
                     <p class="p-0 m-0 text-lowercase text-secondary mt-auto">@if ($pemasukan_different > 0)
@@ -153,7 +153,7 @@
                     @else
                         <span class="fw-bold">{{ number_format($pemasukan_different, 0, ',', '.') }}</span>
                     @endif dari jumlah sebelumnya
-                    </p>
+                    </p> --}}
                 </div>
             </div>
             <div class="col-12 col-lg-4 mb-4">
@@ -172,7 +172,7 @@
                             </div>
                         </div>
                     </div>
-                    @php
+                    {{-- @php
                         $pengeluaran_different = $report->pengeluaran[0] - $report->pengeluaran[1];
                     @endphp
                     <p class="p-0 m-0 text-lowercase text-secondary mt-auto">@if ($pengeluaran_different > 0)
@@ -182,7 +182,7 @@
                     @else
                         <span class="fw-bold">{{ number_format($pengeluaran_different, 0, ',', '.') }}</span>
                     @endif dari jumlah sebelumnya
-                    </p>
+                    </p> --}}
                 </div>
             </div>
 

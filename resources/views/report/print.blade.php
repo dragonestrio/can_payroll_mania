@@ -82,8 +82,8 @@
                 $total_addition = 0;
                 $total_deduction = 0;
                 $total_payroll = 0;
-                $no_pendapatan = 1;
-                $no_beban = 1;
+                $no_pendapatan = 'a';
+                $no_beban = 'a';
                 $no_payroll = 1;
             @endphp
 
