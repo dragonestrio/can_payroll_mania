@@ -149,7 +149,7 @@
                                     $payroll_value = $value->payroll_details->sum('value');
                                     $total_payroll += $payroll_value;
                                     $total_deduction += $payroll_value;
-                                    $no_payroll = 'a';
+                                    $no_payroll = 1;
                                 @endphp
                                 <p class="text-secondary m-0 ms-2">{{ $no_payroll++ .'. '. $value->employees->name
                                 .' ( Rp. '. number_format($payroll_value, 0, ',', '.') .' )'  }}</p>
