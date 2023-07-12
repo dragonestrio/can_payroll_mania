@@ -210,8 +210,7 @@
                         @endif">
                             <ul class="accordion-body">
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'employee' && $state == 'read'
-                                    || $position == 'employee' && $state == 'update')
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'report' && $state == 'read')
                                         active
                                     @endif" href="{{ url('report') }}" aria-expanded="false">
                                         <i class="mdi me-2 mdi-download"></i>
