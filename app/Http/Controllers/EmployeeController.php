@@ -20,11 +20,26 @@ class EmployeeController extends Controller
         $employees = Employee::orderBy('name', 'asc');
 
         if ($request->input('search')) {
-            $employees
-                ->where('name', 'like', '%' . $request->input('search') . '%')
-                ->orwhere('section', 'like', '%' . $request->input('search') . '%')
-                ->orwhere('email', 'like', '%' . $request->input('search') . '%')
-                ->orwhere('basic_salary', 'like', '%' . $request->input('search') . '%');
+            switch ($request->input('search')) {
+                case 'Aktif':
+                case 'aktif':
+                    $employees
+                        ->where('deactivated', '== null');
+                    break;
+                case 'Keluar':
+                case 'keluar':
+                    $employees
+                        ->where('deactivated', '!= null');
+                    break;
+
+                default:
+                $employees
+                    ->where('name', 'like', '%' . $request->input('search') . '%')
+                    ->orwhere('section', 'like', '%' . $request->input('search') . '%')
+                    ->orwhere('email', 'like', '%' . $request->input('search') . '%')
+                    ->orwhere('basic_salary', 'like', '%' . $request->input('search') . '%');
+                    break;
+            }
         }
 
         $data = [
@@ -120,6 +135,7 @@ class EmployeeController extends Controller
             'state'             => 'update',
             'position'          => 'employee',
             'employees'          => $employee::where('id', $employee->id)->first(),
+            'active'            => $employee->deactivated_at,
         ];
 
         return view('employees.form', $data);
@@ -171,6 +187,25 @@ class EmployeeController extends Controller
         }
 
         $result = $employee::destroy($employee->id);
+        if ($result == true) {
+            return redirect('employee')->with('notif-y', 'sukses');
+        } else {
+            return redirect('employee')->with('notif-x', 'error');
+        }
+    }
+
+    public function active_process(Employee $employee)
+    {
+        if ($employee::where('id', $employee->id)->count() == 0) {
+            return redirect('employee')->with('notif-x', 'maaf anda tidak diperkenankan mengakses');
+        }
+
+        if ($employee->deactivated_at == null) {
+            $result = $employee::where('id', $employee->id)->update(['deactivated_at' => date('Y-m-d H:i:s')]);
+        } else {
+            $result = $employee::where('id', $employee->id)->update(['deactivated_at' => null]);
+        }
+
         if ($result == true) {
             return redirect('employee')->with('notif-y', 'sukses');
         } else {

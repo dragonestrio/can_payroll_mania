@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
         //
         // employee
         Route::resource('employee', EmployeeController::class);
+        Route::put('employee/{employee}/active_process', [EmployeeController::class, 'active_process'])->name('employee.active_process');
         //
         // financial
         Route::resource('financial', FinancialController::class);

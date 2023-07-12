@@ -35,6 +35,7 @@
                             <p class="p-0 m-0 text-capitalize text-xxs">bidang</p>
                             <p class="p-0 m-0 text-capitalize text-xxs">email</p>
                             <p class="p-0 m-0 text-capitalize text-xxs">gaji pokok</p>
+                            <p class="p-0 m-0 text-capitalize text-xxs">status</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4">
@@ -54,6 +55,7 @@
                                     <p class="p-0 m-0 text-capitalize py-2 mx-4">{{ $item->section }}</p>
                                     <p class="p-0 m-0 text-lowercase py-2 mx-4">{{ $item->email }}</p>
                                     <p class="p-0 m-0 text-capitalize py-2 mx-4">Rp. {{ number_format($item->basic_salary, 0, ',', '.') }}</p>
+                                    <p class="p-0 m-0 text-capitalize py-2 mx-4">{{ ($item->deactivated_at == null) ? 'aktif' : 'keluar'  }}</p>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-4 py-3 d-flex justify-content-center border-1 border-start">

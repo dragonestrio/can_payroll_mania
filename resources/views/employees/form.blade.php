@@ -44,12 +44,38 @@
     <div class="container-fluid text-dark">
         <div class="px-0 px-lg-4 pb-4">
             <div class="card rounded-8-important width-100 width-lg-75 py-4 py-lg-5 px-3 px-lg-4 mx-auto">
+                @if (isset($employees))
+                    <form action="{{ url('employee/'. $employees->id . '/active_process') }}" method="post" class="pb-2">
+                        @csrf
+                        @method('put')
+                        <div class="d-block d-md-none justify-content-end w-100">
+                            <button class="btn {{ ($employees->deactivated == null) ? 'btn-danger' : 'btn-success' }} w-100 py-2 px-4 rounded-5-important text-white text-uppercase">
+                                <p class="p-0 m-0 text-capitalize">{{ ($employees->deactivated_at == null) ? 'non aktif kan' : 'aktif kan' }}</p>
+                            </button>
+                        </div>
+                        <div class="d-none d-md-flex justify-content-end w-100">
+                            <button class="btn {{ ($employees->deactivated == null) ? 'btn-danger' : 'btn-success' }} py-2 px-4 rounded-5-important text-white text-uppercase">
+                                <p class="p-0 m-0 text-capitalize">{{ ($employees->deactivated_at == null) ? 'non aktif kan' : 'aktif kan' }}</p>
+                            </button>
+                        </div>
+                    </form>
+                    @if (isset($employees) && $active != null)
+                        <div class="d-flex text-danger">
+                            <i class="bi bi-info-circle"></i>
+                            <p class="ps-2">Maaf karyawan ini sudah keluar sejak {{ date('d M Y', strtotime($employees->deactivated_at)) }} sehingga tidak dapat dilakukan perubahan data</p>
+                        </div>
+                    @endif
+                @endif
+
+
                 <form action="{{ (isset($employees)) ? url('employee/'.$employees->id) : url('employee') }}" method="post" enctype="multipart/form-data" id="form">
                     @csrf
                     @if (isset($employees))
                         @method('put')
                     @endif
-
+                    @php
+                        $active_form = (isset($active) && $active != null) ? ' readonly' : '';
+                    @endphp
                     <div class="py-2">
                         {{ view('forms.input-floating', ['data' => [
                             'type'          => 'text',
@@ -57,7 +83,7 @@
                             'value'         => (old('name') != null) ? old('name') : (isset($employees) ? $employees->name : ''),
                             'placeholder'   => ucwords('masukkan nama karyawan'),
                             'class_add'     => '',
-                            'optional'      => 'required autofocus',
+                            'optional'      => 'required autofocus' . $active_form,
                             'label'         => 'nama karyawan',
                             'option'        => []
                         ]]) }}
@@ -70,7 +96,7 @@
                             'value'         => (old('section') != null) ? old('section') : (isset($employees) ? $employees->section : ''),
                             'placeholder'   => ucwords('masukkan divisi karyawan'),
                             'class_add'     => '',
-                            'optional'      => 'required',
+                            'optional'      => 'required' . $active_form,
                             'label'         => 'divisi karyawan',
                             'option'        => []
                         ]]) }}
@@ -83,7 +109,7 @@
                             'value'         => (old('email') != null) ? old('email') : (isset($employees) ? $employees->email : ''),
                             'placeholder'   => ucwords('masukkan email karyawan'),
                             'class_add'     => '',
-                            'optional'      => 'required',
+                            'optional'      => 'required' . $active_form,
                             'label'         => 'email karyawan',
                             'option'        => []
                         ]]) }}
@@ -96,7 +122,7 @@
                             'value'         => (old('basic_salary') != null) ? old('basic_salary') : (isset($employees) ? $employees->basic_salary : ''),
                             'placeholder'   => ucwords('masukkan nominal gaji pokok karyawan'),
                             'class_add'     => '',
-                            'optional'      => 'required',
+                            'optional'      => 'required' . $active_form,
                             'label'         => 'rp',
                             'option'        => []
                         ]]) }}
@@ -107,7 +133,8 @@
                     <a onclick="history.back()" class="btn btn-outline-light bg-gradient-faded-light border-0 py-2 px-4 rounded-5-important text-secondary text-uppercase">
                         <p class="p-0 m-0 text-capitalize">kembali</p>
                     </a>
-                    <button form="form" class="btn btn-info py-2 px-4 rounded-5-important text-white text-uppercase">
+                    <button form="form" class="btn btn-info py-2 px-4 rounded-5-important text-white text-uppercase"
+                    {{ (isset($active) && $active != null) ? ' disabled' : '' }}>
                         <p class="p-0 m-0 text-capitalize">{{ (isset($employees)) ? 'perbarui' : 'buat' }}</p>
                     </button>
                 </div>
