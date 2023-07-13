@@ -203,7 +203,7 @@ class FinancialController extends Controller
                     'name'                 => ['required', 'string', 'min:3', 'max:255'],
                     'category'             => ['required', 'string', 'min:3', 'max:255'],
                     'value'                => ['required', 'numeric', 'digits_between:1,20', 'min:100'],
-                    'description'          => ['nullable', 'string', 'max:255'],
+                    'description'          => ['nullable', 'string'],
                     'created_at'           => ['required', 'date', 'after:2000-01-01', 'before:' . date('Y-m-d', strtotime('+1 days'))],
                 ]);
                 break;
@@ -216,7 +216,7 @@ class FinancialController extends Controller
                     'name'                 => ['required', 'string', 'min:3', 'max:255'],
                     'category'             => ['required', 'string', 'min:3', 'max:255'],
                     'value'                => ['required', 'numeric', 'digits_between:1,20', 'min:100'],
-                    'description'          => ['nullable', 'string', 'max:255'],
+                    'description'          => ['nullable', 'string'],
                     'created_at'           => ['required', 'date', 'after:2000-01-01', 'before:' . date('Y-m-d', strtotime('+1 days'))],
                 ]);
                 break;
