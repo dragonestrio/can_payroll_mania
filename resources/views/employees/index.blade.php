@@ -74,7 +74,7 @@
                                         </svg>
                                     </div>
                                 </a>
-                                <button form="delete-{{ $item->id }}" onclick="return confirm('Apakah benar Anda ingin menghapus {{ $item->name }} ?')" class="btn btn-outline-light bg-gradient-faded-light border-0 shadow-none fw-bold mx-auto py-0 my-auto">
+                                {{-- <button form="delete-{{ $item->id }}" onclick="return confirm('Apakah benar Anda ingin menghapus {{ $item->name }} ?')" class="btn btn-outline-light bg-gradient-faded-light border-0 shadow-none fw-bold mx-auto py-0 my-auto">
                                     <form action="{{ url('employee/'.$item->id) }}" method="post" enctype="multipart/form-data" class="d-inline" id="delete-{{ $item->id }}">
                                         @method('delete')
                                         @csrf
@@ -84,7 +84,7 @@
                                             </svg>
                                         </div>
                                     </form>
-                                </button>
+                                </button> --}}
                             </div>
                         </div>
                     </div>
