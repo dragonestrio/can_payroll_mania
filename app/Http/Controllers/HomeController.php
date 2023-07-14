@@ -230,8 +230,8 @@ class HomeController extends Controller
         $financial_deduction = [];
 
         $date_find = $request->input('date');
-        $financial = Financial::where('created_at', 'like', '%' . $date_find . '%')->latest()->get();
-        $payroll = Payroll::with('payroll_details')->where('date', 'like', '%' . $date_find . '%')->latest()->get();
+        $financial = Financial::where('created_at', 'like', '%' . $date_find . '%')->oldest()->get();
+        $payroll = Payroll::with('payroll_details')->where('date', 'like', '%' . $date_find . '%')->oldest()->get();
 
         foreach ($financial as $key => $value) {
             switch ($value->category) {
