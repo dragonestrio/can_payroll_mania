@@ -89,7 +89,7 @@
 
             {{-- pendapatan --}}
             <h4 class="pt-3">pendapatan</h4>
-            <div class="row">
+            <div class="row pb-5">
                 {{-- financial --}}
                 @foreach ($financial->addition as $key => $value)
                 @php
@@ -172,21 +172,21 @@
             </div>
             {{-- ./biaya --}}
 
-            {{-- total laba --}}
+            {{-- total saldo --}}
             @php
-                $laba = $total_addition - $total_deduction;
+                $saldo = $total_addition - $total_deduction;
             @endphp
 
             <hr>
             <div class="row pb-5 mb-5">
                 <div class="col-6">
-                    <h4 class="">laba/rugi</h4>
+                    <h4 class="">saldo</h4>
                 </div>
                 <div class="col-6 text-end">
-                    <h5 class="text-end {{ ($laba >= 0) ? '' : 'text-danger' }}">Rp. {{ number_format($laba, 0, ',', '.') }}</h5>
+                    <h5 class="text-end {{ ($saldo >= 0) ? '' : 'text-danger' }}">Rp. {{ number_format($saldo, 0, ',', '.') }}</h5>
                 </div>
             </div>
-            {{-- ./total laba --}}
+            {{-- ./total saldo --}}
 
             {{-- ttd --}}
             <div class="row pt-5">
