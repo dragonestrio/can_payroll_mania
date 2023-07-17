@@ -38,6 +38,20 @@ class PayrollController extends Controller
                 });
         }
 
+        if ($request->input('filter_range') != null) {
+            $range = explode(' ', $request->input('filter_range'))[0];
+            $year = date('Y');
+            $month = date('m');
+
+            if (str_contains($request->input('filter_range'), 'month')) {
+                $payrolls->where('date', 'like', '%' . ($year.'-0'.$month-$range) . '%');
+            } else {
+                $payrolls->where('date', 'like', '%' . ($year-$range) . '%');
+            }
+        } else {
+            $payrolls->where('date', 'like', '%' . date('Y-m') . '%');
+        }
+
         $data = [
             'title'         => 'Gajian',
             'app'           => env('APP_NAME'),

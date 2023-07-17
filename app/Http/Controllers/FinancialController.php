@@ -34,8 +34,7 @@ class FinancialController extends Controller
             }
             $financials
                 ->where('name', 'like', '%' . $search . '%')
-                ->orwhere('category', 'like', '%' . $search . '%')
-                ->orwhere('value', 'like', '%' . $search . '%');
+                ->orwhere('category', 'like', '%' . $search . '%');
         }
 
         if ($request->input('filter_range') != null) {
@@ -52,6 +51,7 @@ class FinancialController extends Controller
             $financials->where('created_at', 'like', '%' . date('Y-m') . '%');
         }
 
+        // dd($financials);
         $data = [
             'title'         => 'Keuangan',
             'app'           => env('APP_NAME'),

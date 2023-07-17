@@ -11,6 +11,13 @@
             'pages_current' => 'daftar keuangan']) }}
 
         <form action="" method="get" class="pt-5 px-2 px-lg-5">
+            @php
+                $req = request()->except('page', 'search');
+            @endphp
+            @foreach ($req as $key => $value)
+                <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+            @endforeach
+
             <div class="d-flex justify-content-between">
                 <input type="search" name="search" class="form-control rounded-5-important me-4" placeholder="Cari disini..." value="{{ request()->input('search') }}">
                 <button class="btn btn-success text-capitalize text-center text-white mb-0 rounded-5-important">
@@ -36,6 +43,7 @@
                         <div class="d-flex justify-content-end py-5">
                             <form action="" method="get" id="form_filter" class="w-100">
                                 @php
+                                    $reqfr = request()->except('page', 'filter_range');
                                     $option = [];
                                     $option[null] = 'Bulan Sekarang';
                                     for ($bi=1; $bi < 12 ; $bi++) {
@@ -45,6 +53,10 @@
                                         $option[$ti . ' year'] = $ti . ' Tahun lalu';
                                     }
                                 @endphp
+
+                                @foreach ($reqfr as $key => $value)
+                                    <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+                                @endforeach
                                 {{ view('forms.input-select-floating', ['data' => [
                                     'type'          => 'select',
                                     'name'          => 'filter_range',
