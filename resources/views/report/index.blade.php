@@ -27,7 +27,7 @@
 <main class="">
     <div class="container-fluid text-dark">
         <div class="px-0 px-lg-4 pb-4">
-            <div class="card rounded-8-important width-100 width-lg-75 py-4 py-lg-5 px-3 px-lg-4 mx-auto">
+            <div class="card rounded-8-important width-100 {{ (request()->input('date') == null) ? 'width-lg-50' : 'width-lg-75' }} py-4 py-lg-5 px-3 px-lg-4 mx-auto">
                 <form action="{{ url('report/generate') }}" method="post" enctype="multipart/form-data" id="form" target="_blank">
                     @csrf
                     {{-- @if (isset($report))
