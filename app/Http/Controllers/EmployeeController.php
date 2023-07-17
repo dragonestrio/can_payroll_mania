@@ -21,29 +21,17 @@ class EmployeeController extends Controller
 
         if ($request->input('search')) {
             $employees
-                ->where('name', 'like', '%' . $request->input('search') . '%')
-                ->orwhere('section', 'like', '%' . $request->input('search') . '%')
-                ->orwhere('email', 'like', '%' . $request->input('search') . '%')
-                ->orwhere('basic_salary', 'like', '%' . $request->input('search') . '%');
+                ->where('name', 'like', '%' . $request->input('search') . '%');
+                // ->orwhere('section', 'like', '%' . $request->input('search') . '%')
+                // ->orwhere('email', 'like', '%' . $request->input('search') . '%')
+                // ->orwhere('basic_salary', 'like', '%' . $request->input('search') . '%');
 
         }
-        
-        switch ($request->input('filter_status')) {
-            case 'Aktif':
-            case 'aktif':
-                $employees
-                    ->whereNull('deactivated_at');
-                break;
-            case 'Keluar':
-            case 'keluar':
-                $employees
-                    ->whereNotNull('deactivated_at');
-                break;
 
-            default:
-                $employees
-                    ->whereNull('deactivated_at');
-                break;
+        if (str_contains($request->input('filter_status'), 'keluar')) {
+            $employees->whereNotNull('deactivated_at');
+        } else {
+            $employees->whereNull('deactivated_at');
         }
 
         $data = [
