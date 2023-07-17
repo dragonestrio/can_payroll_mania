@@ -52,7 +52,7 @@
                                     'placeholder'   => ucwords('masukkan filter jarak pencarian anda'),
                                     'class_add'     => '',
                                     'optional'      => 'required onchange=$(form_filter).submit()',
-                                    'label'         => 'cari di bulan yang lalu',
+                                    'label'         => 'cari di bulan',
                                     'option'        => $option
                                 ]]) }}
                             </form>
