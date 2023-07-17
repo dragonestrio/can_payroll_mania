@@ -27,7 +27,7 @@
 </style>
 
 <body id="body" class="">
-    <div class="container mt-0 mt-md-5 mb-0 mb-md-5 px-0 border rounded-10-important overflow-hidden">
+    <div class="container mt-0 mt-lg-5 mb-0 mb-lg-5 px-0 border rounded-10-important overflow-hidden">
         <div class="px-2 px-md-4 py-3 bg-light">
             <table class="w-100">
                 <tr>
@@ -83,7 +83,7 @@
                 $total_deduction = 0;
                 $total_payroll = 0;
                 $no_pendapatan = 'a';
-                $no_beban = 'a';
+                $no_biaya = 'a';
                 $no_payroll = 1;
             @endphp
 
@@ -120,8 +120,8 @@
             </div>
             {{-- ./pendapatan --}}
 
-            {{-- beban --}}
-            <h4 class="pt-3">beban</h4>
+            {{-- biaya --}}
+            <h4 class="pt-3">biaya</h4>
             <div class="row">
                 {{-- financial --}}
                 @foreach ($financial->deduction as $key => $value)
@@ -129,7 +129,7 @@
                     $total_deduction += $value->value;
                 @endphp
                     <div class="col-6">
-                        <p class="m-0">{{ $no_beban++ .'. '. $value->name }}</p>
+                        <p class="m-0">{{ $no_biaya++ .'. biaya '. $value->name }}</p>
                         @if ($value->description != null || $value->description != '')
                             <p class="m-0 ms-2">deskripsi :
                                 <p class="text-secondary m-0 ms-2">{{ $value->description }}</p>
@@ -143,7 +143,7 @@
                 {{-- ./financial --}}
                 {{-- payroll --}}
                 <div class="col-6">
-                    <p class="m-0">{{ $no_beban++ .'. penggajian karyawan' }}</p>
+                    <p class="m-0">{{ $no_biaya++ .'. biaya penggajian karyawan' }}</p>
                         <p class="m-0 ms-2">deskripsi :
                             @foreach ($payroll as $key => $value)
                                 @php
@@ -161,16 +161,16 @@
                     </div>
                 {{-- ./payroll --}}
 
-                {{-- total beban --}}
+                {{-- total biaya --}}
                 <div class="col-6">
-                    <p class="m-0">total beban</p>
+                    <p class="m-0">total biaya</p>
                 </div>
                 <div class="col-6 col-md-6 text-end text-danger border-top border-dark">
                     <p class="m-0">Rp. {{ number_format($total_deduction, 0, ',', '.') }}</p>
                 </div>
-                {{-- ./total beban --}}
+                {{-- ./total biaya --}}
             </div>
-            {{-- ./beban --}}
+            {{-- ./biaya --}}
 
             {{-- total laba --}}
             @php
@@ -178,7 +178,7 @@
             @endphp
 
             <hr>
-            <div class="row">
+            <div class="row pb-5 mb-5">
                 <div class="col-6">
                     <h4 class="">laba/rugi</h4>
                 </div>
@@ -195,7 +195,7 @@
                 </div>
                 <div class=" col-6 col-md-3">
                     <p class="text-capitalize p-0 m-0">semarang, {{ date('d M Y') }}</p>
-                    <p class="text-capitalize">{{ Auth()->user()->getRoleNames()->first() }}</p>
+                    <p class="text-capitalize pb-5">{{ Auth()->user()->getRoleNames()->first() }}</p>
                     <p class="text-capitalize pt-5">{{ Auth()->user()->name }}</p>
                 </div>
             </div>
