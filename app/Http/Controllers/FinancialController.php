@@ -33,8 +33,8 @@ class FinancialController extends Controller
                     break;
             }
             $financials
-                ->where('name', 'like', '%' . $search . '%')
-                ->orwhere('category', 'like', '%' . $search . '%');
+                ->where('name', 'like', '%' . $search . '%');
+                // ->orwhere('category', 'like', '%' . $search . '%');
         }
 
         if ($request->input('filter_range') != null) {

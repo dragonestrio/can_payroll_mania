@@ -32,8 +32,8 @@ class PayrollController extends Controller
             $check_date = DateTime::createFromFormat('Y-m-d', $request->input('search'));
             ($check_date == false) ?: $payrolls->whereDate('date', $request->input('search'));
             $payrolls
-                ->where('description', 'like', '%' . $request->input('search') . '%')
-                ->orwhereHas('employees', function ($query) use ($request) {
+                // ->where('description', 'like', '%' . $request->input('search') . '%')
+                ->whereHas('employees', function ($query) use ($request) {
                     $query->where('name', 'like', '%' . $request->input('search') . '%');
                 });
         }
