@@ -38,6 +38,20 @@ class FinancialController extends Controller
                 ->orwhere('value', 'like', '%' . $search . '%');
         }
 
+        if ($request->input('filter_range') != null) {
+            $range = explode(' ', $request->input('filter_range'))[0];
+            $year = date('Y');
+            $month = date('m');
+
+            if (str_contains($request->input('filter_range'), 'month')) {
+                $financials->where('created_at', 'like', '%' . ($year.'-0'.$month-$range) . '%');
+            } else {
+                $financials->where('created_at', 'like', '%' . ($year-$range) . '%');
+            }
+        } else {
+            $financials->where('created_at', 'like', '%' . date('Y-m') . '%');
+        }
+
         $data = [
             'title'         => 'Keuangan',
             'app'           => env('APP_NAME'),

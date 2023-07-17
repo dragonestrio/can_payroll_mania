@@ -27,6 +27,39 @@
 <main>
     <div class="container-fluid text-dark pt-5 mt-5">
         <div class="px-0 px-lg-4 py-4 mt-2 mt-lg-5">
+            <div class="card-rounded-8-important overflow-hidden">
+                <div class="row">
+                    <div class="col-0 col-lg-9">
+                        {{-- EMPTY --}}
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <div class="d-flex justify-content-end py-5">
+                            <form action="" method="get" id="form_filter" class="w-100">
+                                @php
+                                    $option = [];
+                                    $option[null] = 'Bulan Sekarang';
+                                    for ($bi=1; $bi < 12 ; $bi++) {
+                                        $option[$bi . ' month'] = $bi . ' Bulan lalu';
+                                    }
+                                    for ($ti=1; $ti < 6 ; $ti++) {
+                                        $option[$ti . ' year'] = $ti . ' Tahun lalu';
+                                    }
+                                @endphp
+                                {{ view('forms.input-select-floating', ['data' => [
+                                    'type'          => 'select',
+                                    'name'          => 'filter_range',
+                                    'value'         => (request()->input('filter_range') != null) ? request()->input('filter_range') : null,
+                                    'placeholder'   => ucwords('masukkan filter jarak pencarian anda'),
+                                    'class_add'     => '',
+                                    'optional'      => 'required onchange=$(form_filter).submit()',
+                                    'label'         => 'cari di bulan yang lalu',
+                                    'option'        => $option
+                                ]]) }}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card bg-transparent border-0 shadow-none d-none d-lg-block">
                 <div class="row">
                     <div class="col-12 col-lg-8">
