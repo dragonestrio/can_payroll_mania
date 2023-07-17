@@ -112,86 +112,66 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button border-0 bg-transparent text-capitalize @if ($position != 'payroll' || $position != 'payroll_category')
+                            <button class="accordion-button border-0 bg-transparent text-capitalize @if ($position != 'payroll_category')
                                 collapsed
                             @endif" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 <i class="mdi me-2 mdi-book-multiple-variant"></i>
-                                <span>penggajian</span>
+                                <span>kategori penggajian</span>
                             </button>
                         </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse border-0 bg-transparent @if ($position == 'payroll' || $position == 'payroll_category')
+                        <div id="collapseFour" class="accordion-collapse collapse border-0 bg-transparent @if ($position == 'payroll_category')
                             show
                         @endif">
                             <ul class="accordion-body">
-                                <li class="accordion">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button border-0 bg-transparent text-capitalize @if ($position != 'payroll_category')
-                                                collapsed
-                                            @endif" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourA" aria-expanded="false" aria-controls="collapseFourA">
-                                                <i class="mdi me-2 mdi-cash-multiple"></i>
-                                                <span>kategori penggajian</span>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseFourA" class="accordion-collapse collapse border-0 bg-transparent @if ($position == 'payroll_category')
-                                            show
-                                        @endif">
-                                            <ul class="accordion-body">
-                                                <li class="sidebar-item">
-                                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'payroll_category' && $state == 'read'
-                                                    || $position == 'payroll_category' && $state == 'update')
-                                                        active
-                                                    @endif" href="{{ url('payroll_category') }}" aria-expanded="false">
-                                                        <i class="mdi me-2 mdi-information-outline"></i>
-                                                        <span class="hide-menu text-capitalize">daftar kategori</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sidebar-item">
-                                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'payroll_category' && $state == 'create')
-                                                        active
-                                                    @endif" href="{{ url('payroll_category/create') }}" aria-expanded="false">
-                                                        <i class="mdi me-2 mdi-plus-circle-outline"></i>
-                                                        <span class="hide-menu text-capitalize">tambah kategori</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'payroll_category' && $state == 'read'
+                                    || $position == 'payroll_category' && $state == 'update')
+                                        active
+                                    @endif" href="{{ url('payroll_category') }}" aria-expanded="false">
+                                        <i class="mdi me-2 mdi-information-outline"></i>
+                                        <span class="hide-menu text-capitalize">daftar kategori</span>
+                                    </a>
                                 </li>
-                                <li class="accordion">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button border-0 bg-transparent text-capitalize @if ($position != 'payroll')
-                                                collapsed
-                                            @endif" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourB" aria-expanded="false" aria-controls="collapseFourB">
-                                                <i class="mdi me-2 mdi-book-open-page-variant"></i>
-                                                <span>gajian</span>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseFourB" class="accordion-collapse collapse border-0 bg-transparent @if ($position == 'payroll')
-                                            show
-                                        @endif">
-                                            <ul class="accordion-body">
-                                                <li class="sidebar-item">
-                                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'payroll' && $state == 'read'
-                                                    || $position == 'payroll' && $state == 'update')
-                                                        active
-                                                    @endif" href="{{ url('payroll') }}" aria-expanded="false">
-                                                        <i class="mdi me-2 mdi-information-outline"></i>
-                                                        <span class="hide-menu text-capitalize">daftar penggajian</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sidebar-item">
-                                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'payroll' && $state == 'create')
-                                                        active
-                                                    @endif" href="{{ url('payroll/create') }}" aria-expanded="false">
-                                                        <i class="mdi me-2 mdi-plus-circle-outline"></i>
-                                                        <span class="hide-menu text-capitalize">tambah penggajian</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'payroll_category' && $state == 'create')
+                                        active
+                                    @endif" href="{{ url('payroll_category/create') }}" aria-expanded="false">
+                                        <i class="mdi me-2 mdi-plus-circle-outline"></i>
+                                        <span class="hide-menu text-capitalize">tambah kategori</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button border-0 bg-transparent text-capitalize @if ($position != 'payroll')
+                                collapsed
+                            @endif" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                <i class="mdi me-2 mdi-book-open-page-variant"></i>
+                                <span>penggajian</span>
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse border-0 bg-transparent @if ($position == 'payroll')
+                            show
+                        @endif">
+                            <ul class="accordion-body">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'payroll' && $state == 'read'
+                                    || $position == 'payroll' && $state == 'update')
+                                        active
+                                    @endif" href="{{ url('payroll') }}" aria-expanded="false">
+                                        <i class="mdi me-2 mdi-information-outline"></i>
+                                        <span class="hide-menu text-capitalize">data penggajian</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link @if ($position == 'payroll' && $state == 'create')
+                                        active
+                                    @endif" href="{{ url('payroll/create') }}" aria-expanded="false">
+                                        <i class="mdi me-2 mdi-plus-circle-outline"></i>
+                                        <span class="hide-menu text-capitalize">tambah penggajian</span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -200,12 +180,12 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button border-0 bg-transparent text-capitalize @if ($position != 'report')
                                 collapsed
-                            @endif" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            @endif" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                                 <i class="mdi me-2 mdi-file-chart"></i>
                                 <span>laporan keuangan</span>
                             </button>
                         </h2>
-                        <div id="collapseFive" class="accordion-collapse collapse border-0 bg-transparent @if ($position == 'report')
+                        <div id="collapseSix" class="accordion-collapse collapse border-0 bg-transparent @if ($position == 'report')
                             show
                         @endif">
                             <ul class="accordion-body">

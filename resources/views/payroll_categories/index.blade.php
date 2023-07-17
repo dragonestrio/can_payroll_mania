@@ -87,7 +87,7 @@
                 @endforeach
             @endcan
 
-            <div class="d-flex justify-content-end pb-5">
+            <div class="d-flex justify-content-center justify-content-lg-end pb-5">
                 {{ $payroll_categories->links() }}
                 {{-- @php $pagination_external = $payroll_categories; @endphp
                 @include('partials.pagination.simple-custom') --}}

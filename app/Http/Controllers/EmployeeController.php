@@ -20,26 +20,30 @@ class EmployeeController extends Controller
         $employees = Employee::orderBy('name', 'asc');
 
         if ($request->input('search')) {
-            switch ($request->input('search')) {
-                case 'Aktif':
-                case 'aktif':
-                    $employees
-                        ->where('deactivated', '== null');
-                    break;
-                case 'Keluar':
-                case 'keluar':
-                    $employees
-                        ->where('deactivated', '!= null');
-                    break;
+            $employees
+                ->where('name', 'like', '%' . $request->input('search') . '%')
+                ->orwhere('section', 'like', '%' . $request->input('search') . '%')
+                ->orwhere('email', 'like', '%' . $request->input('search') . '%')
+                ->orwhere('basic_salary', 'like', '%' . $request->input('search') . '%');
 
-                default:
+        }
+        
+        switch ($request->input('filter_status')) {
+            case 'Aktif':
+            case 'aktif':
                 $employees
-                    ->where('name', 'like', '%' . $request->input('search') . '%')
-                    ->orwhere('section', 'like', '%' . $request->input('search') . '%')
-                    ->orwhere('email', 'like', '%' . $request->input('search') . '%')
-                    ->orwhere('basic_salary', 'like', '%' . $request->input('search') . '%');
-                    break;
-            }
+                    ->whereNull('deactivated_at');
+                break;
+            case 'Keluar':
+            case 'keluar':
+                $employees
+                    ->whereNotNull('deactivated_at');
+                break;
+
+            default:
+                $employees
+                    ->whereNull('deactivated_at');
+                break;
         }
 
         $data = [

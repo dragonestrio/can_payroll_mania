@@ -95,7 +95,7 @@
                 @endforeach
             @endcan
 
-            <div class="d-flex justify-content-end pb-5">
+            <div class="d-flex justify-content-center justify-content-lg-end pb-5">
                 {{-- {{ $users->links() }} --}}
                 @php $pagination_external = $users; @endphp
                 @include('partials.pagination.simple-custom')

@@ -29,6 +29,22 @@
         <div class="px-0 px-lg-4 py-4 mt-2 mt-lg-5">
             <div class="card bg-transparent border-0 shadow-none d-none d-lg-block">
                 <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="d-flex justify-content-end py-5">
+                            <form action="" method="get" id="form_filter" class="w-25">
+                                {{ view('forms.input-select-floating', ['data' => [
+                                    'type'          => 'select',
+                                    'name'          => 'filter_status',
+                                    'value'         => (request()->input('filter_status') != null) ? request()->input('filter_status') : 'aktif',
+                                    'placeholder'   => ucwords('masukkan filter status anda'),
+                                    'class_add'     => '',
+                                    'optional'      => 'required onchange=$(form_filter).submit()',
+                                    'label'         => 'tampilkan berdasarkan status',
+                                    'option'        => ['aktif'=>'Aktif', 'keluar'=>'Keluar']
+                                ]]) }}
+                            </form>
+                        </div>
+                    </div>
                     <div class="col-12 col-lg-8">
                         <div class="d-flex justify-content-between px-2 px-lg-4">
                             <p class="p-0 m-0 text-capitalize text-xxs">nama</p>
@@ -91,7 +107,7 @@
                 @endforeach
             @endcan
 
-            <div class="d-flex justify-content-end pb-5">
+            <div class="d-flex justify-content-center justify-content-lg-end pb-5">
                 {{ $employees->links() }}
                 {{-- @php $pagination_external = $employees; @endphp
                 @include('partials.pagination.simple-custom') --}}
