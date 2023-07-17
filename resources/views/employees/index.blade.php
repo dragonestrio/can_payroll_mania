@@ -27,11 +27,14 @@
 <main>
     <div class="container-fluid text-dark pt-5 mt-5">
         <div class="px-0 px-lg-4 py-4 mt-2 mt-lg-5">
-            <div class="card bg-transparent border-0 shadow-none d-none d-lg-block">
+            <div class="card-rounded-8-important overflow-hidden">
                 <div class="row">
-                    <div class="col-12 col-lg-12">
+                    <div class="col-0 col-lg-9">
+                        {{-- EMPTY --}}
+                    </div>
+                    <div class="col-12 col-lg-3">
                         <div class="d-flex justify-content-end py-5">
-                            <form action="" method="get" id="form_filter" class="w-25">
+                            <form action="" method="get" id="form_filter" class="w-100">
                                 {{ view('forms.input-select-floating', ['data' => [
                                     'type'          => 'select',
                                     'name'          => 'filter_status',
@@ -45,6 +48,10 @@
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="card bg-transparent border-0 shadow-none d-none d-lg-block">
+                <div class="row">
                     <div class="col-12 col-lg-8">
                         <div class="d-flex justify-content-between px-2 px-lg-4">
                             <p class="p-0 m-0 text-capitalize text-xxs">nama</p>
