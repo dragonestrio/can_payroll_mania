@@ -27,7 +27,7 @@
 </style>
 
 <body id="body" class="">
-    <div class="container mt-0 mt-md-5 px-0 border rounded-10-important overflow-hidden">
+    <div class="container mt-0 mt-md-5 mb-0 mb-md-5 px-0 border rounded-10-important overflow-hidden">
         <div class="px-2 px-md-4 py-3 bg-light">
             <table class="w-100">
                 <tr>
@@ -187,6 +187,26 @@
                 </div>
             </div>
             {{-- ./total laba --}}
+
+            {{-- ttd --}}
+            <div class="row pt-5">
+                <div class="col-6 col-md-9">
+                    {{-- EMPTY --}}
+                </div>
+                <div class=" col-6 col-md-3">
+                    <p class="text-capitalize p-0 m-0">semarang, {{ date('d M Y') }}</p>
+                    <p class="text-capitalize">{{ Auth()->user()->getRoleNames()->first() }}</p>
+                    <p class="text-capitalize pt-5">{{ Auth()->user()->name }}</p>
+                </div>
+            </div>
+            {{-- ./ttd --}}
+        </div>
+        <div class="px-2 px-md-4 py-3 bg-light">
+            <div class="d-flex justify-content-center">
+                <p class="text-capitalize p-0 m-0">
+                    © {{ date('Y') }} Created by <a href="https://can.co.id/" style="font-weight: bold;text-decoration: none;">CAN Creative </a>
+                </p>
+            </div>
         </div>
     </div>
 
