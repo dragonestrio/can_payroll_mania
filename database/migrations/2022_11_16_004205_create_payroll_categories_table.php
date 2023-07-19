@@ -18,7 +18,7 @@ class CreatePayrollCategoriesTable extends Migration
             $table->string('name');
             $table->enum('type', ['static', 'dynamic']);
             $table->bigInteger('value_default')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
