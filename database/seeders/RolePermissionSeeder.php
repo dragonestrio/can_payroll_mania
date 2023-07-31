@@ -19,6 +19,7 @@ class RolePermissionSeeder extends Seeder
         $role = [
             // 'superadmin',
             'admin',
+            'accounting',
             // 'owner', 'karyawan',
             // 'user',
         ];
