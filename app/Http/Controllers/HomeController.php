@@ -65,6 +65,7 @@ class HomeController extends Controller
         switch ($role) {
             case 'superadmin':
             case 'admin':
+            case 'accounting':
                 return $this->dashboard_admin();
                 break;
 

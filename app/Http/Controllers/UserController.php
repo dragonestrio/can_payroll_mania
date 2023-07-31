@@ -156,6 +156,7 @@ class UserController extends Controller
         switch (Auth::user()->getRoleNames()->first()) {
             case 'superadmin':
             case 'admin':
+            case 'accounting':
                 # code...
                 break;
 
@@ -195,6 +196,7 @@ class UserController extends Controller
         switch (Auth::user()->getRoleNames()->first()) {
             case 'superadmin':
             case 'admin':
+            case 'accounting':
                 # code...
                 break;
 
@@ -239,6 +241,7 @@ class UserController extends Controller
         switch (Auth::user()->getRoleNames()->first()) {
             case 'superadmin':
             case 'admin':
+            case 'accounting':
                 # code...
                 break;
 
@@ -334,6 +337,7 @@ class UserController extends Controller
         switch (Auth::user()->getRoleNames()->first()) {
             case 'superadmin':
             case 'admin':
+            case 'accounting':
                 # code...
                 break;
 
@@ -367,6 +371,7 @@ class UserController extends Controller
         switch (Auth::user()->getRoleNames()->first()) {
             case 'superadmin':
             case 'admin':
+            case 'accounting':
                 # code...
                 break;
 

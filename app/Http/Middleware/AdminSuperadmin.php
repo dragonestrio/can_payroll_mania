@@ -25,6 +25,9 @@ class AdminSuperadmin
             case 'superadmin':
                 $result = true;
                 break;
+            case 'accounting':
+                $result = true;
+                break;
 
             default:
                 $result = false;
