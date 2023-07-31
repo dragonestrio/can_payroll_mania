@@ -15,8 +15,8 @@ class CreatePayrollsTable extends Migration
     {
         Schema::create('payrolls', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('user_id');
-            $table->string('employee_id');
+            $table->string('user_id', 32);
+            $table->string('employee_id', 32);
             $table->date('date');
             $table->text('description')->nullable();
             $table->softDeletes();

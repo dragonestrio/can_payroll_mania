@@ -15,8 +15,8 @@ class CreateFinancialsTable extends Migration
     {
         Schema::create('financials', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('user_id');
-            $table->string('name')->nullable();
+            $table->string('user_id', 32);
+            $table->string('name', 100)->nullable();
             $table->enum('category', ['additional', 'deductions']);
             $table->bigInteger('value');
             $table->text('description')->nullable();

@@ -17,7 +17,7 @@ class CreatePayrollDetailsTable extends Migration
             $table->id()->autoIncrement();
             // $table->bigInteger('payroll_category_id')->nullable();
             // $table->bigInteger('payroll_id');
-            $table->string('name')->nullable();
+            $table->string('name', 100)->nullable();
             $table->enum('type', ['static', 'dynamic']);
             $table->bigInteger('value');
             $table->text('description')->nullable();

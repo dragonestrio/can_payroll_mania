@@ -15,7 +15,7 @@ class CreatePayrollCategoriesTable extends Migration
     {
         Schema::create('payroll_categories', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('name');
+            $table->string('name', 100);
             $table->enum('type', ['static', 'dynamic']);
             $table->bigInteger('value_default')->nullable();
             $table->text('description')->nullable();
