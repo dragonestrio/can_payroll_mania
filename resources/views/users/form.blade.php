@@ -146,7 +146,7 @@
                     </div>
                     @endif
 
-                    @if(Auth::user()->getRoleNames()->first() == 'admin' || Auth::user()->getRoleNames()->first() == 'superadmin')
+                    @if(Auth::user()->getRoleNames()->first() == 'admin' || Auth::user()->getRoleNames()->first() == 'superadmin' || Auth::user()->getRoleNames()->first() == 'accounting')
                     <div class="py-2">
                         @php
                             $role = [];

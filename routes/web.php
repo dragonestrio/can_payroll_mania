@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
         //
     });
 
-    Route::middleware(['role:admin|superadmin'])->group(function () {
+    Route::middleware(['role:admin|superadmin|accounting'])->group(function () {
         // user
         Route::resource('user', UserController::class);
         Route::get('user/{user}/change_password', [UserController::class, 'change_passwd_index'])->name('user.change_passwd');
