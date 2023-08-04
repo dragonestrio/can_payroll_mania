@@ -29,7 +29,7 @@
         <div class="px-0 px-lg-4 pb-4">
             <div class="card rounded-8-important width-100 width-lg-75 py-4 py-lg-4 px-3 px-lg-4 mx-auto">
                 <div class="d-flex justify-content-center justify-content-lg-end">
-                    @if ($position == 'profile' || Auth::user()->getRoleNames()->first() == 'admin' || Auth::user()->getRoleNames()->first() == 'superadmin' || || Auth::user()->getRoleNames()->first() == 'accounting')
+                    @if ($position == 'profile' || Auth::user()->getRoleNames()->first() == 'admin' || Auth::user()->getRoleNames()->first() == 'superadmin' || Auth::user()->getRoleNames()->first() == 'accounting')
                         <div class="px-2">
                             <a href="{{ url('user/'.$users->id.'/edit') }}" class="btn btn-outline-light bg-gradient-faded-light border-0 text-muted py-2 px-4 rounded-5-important border-0">
                                 <i class="bi bi-gear-wide-connected"></i>
