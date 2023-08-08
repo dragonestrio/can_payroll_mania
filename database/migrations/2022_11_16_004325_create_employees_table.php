@@ -15,9 +15,9 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->string('id', 32)->primary();
-            $table->string('name', 100);
+            $table->string('name', 35);
             $table->string('section', 50);
-            $table->string('email', 100)->nullable();
+            $table->string('email', 45)->nullable();
             $table->bigInteger('basic_salary');
             $table->softDeletes();
             $table->timestamps();
